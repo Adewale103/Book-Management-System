@@ -19,6 +19,7 @@ from django.conf import settings
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
+    path("my_app/auth/", include("djoser.urls")),
     path('my_app/', include("my_app.urls")),
     path('__debug__/', include('debug_toolbar.urls')),
 ]

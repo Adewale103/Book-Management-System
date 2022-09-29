@@ -14,6 +14,8 @@ from pathlib import Path
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(BASE_DIR/".env")
@@ -35,6 +37,8 @@ ALLOWED_HOSTS = []
 THIRD_PARTY_APPS = [
     "debug_toolbar",
     "rest_framework",
+    "django_filters",
+    "djoser",
 ]
 DJANGO_APPS = [
     'djangoProject3.apps.DjangoProject3AdminConfig',
@@ -145,3 +149,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ADMIN_URL = "admin/"
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 10
+}
+
+AUTH_USER_MODEL = "my_app.User"
